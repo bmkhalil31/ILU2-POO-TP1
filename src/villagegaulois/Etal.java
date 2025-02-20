@@ -8,7 +8,9 @@ public class Etal {
 	private int quantiteDebutMarche;
 	private int quantite;
 	private boolean etalOccupe = false;
-
+//public Etal() {
+//	
+//}
 	public boolean isEtalOccupe() {
 		return etalOccupe;
 	}
