@@ -40,7 +40,8 @@ public class Village {
 			for (i = 0; (i < nbEtals && continuer); i++) {
 				continuer = etals[i].isEtalOccupe();
 			}
-
+            if(i==nbEtals)
+            	return -1;
 			return i;
 
 		}
@@ -105,23 +106,25 @@ public class Village {
 
 	}
 	
-//	public void rechercherVendeurProduit(String produit) {
-//		//to do
-//	 Etal[] etalsProduit=marche.trouverEtals(produit);
-//	 switch (etalsProduit.length) {
-//	case 0:
-//		System.out.println("Il n' y a pas de ve");
-//		break;
-//
-//	default:
-//		break;
-//	}
-//		System.out.println("Il n'y a pas de vendeur qui propose des "+produit+" au marche");
-//	} else if() {
-//
-//	}
-//		
-//	}
+	public String rechercherVendeurProduit(String produit) {
+	    Etal[] etalsProduit = marche.trouverEtals(produit);
+	    
+	    switch (etalsProduit.length) {
+	        case 0:
+	            return "Il n'y a pas de vendeur qui propose des " + produit + " au marché";
+	        case 1:
+	            return "Seul le vendeur " + etalsProduit[0].getVendeur().getNom() + " propose des " + produit + " au marché";
+	        default:
+	            StringBuilder listesVendeurs = new StringBuilder("Les vendeurs qui proposent des " + produit + " sont :\n");
+	            for (int i = 0; i < etalsProduit.length; i++) {
+	                listesVendeurs.append(etalsProduit[i].getVendeur().getNom()).append("\n");
+	            }
+	            return listesVendeurs.toString();
+	    }
+	}
+public String installerVendeur(Gaulois vendeur,String produit,int nbProduits) {
+	
+}
 
 	public String getNom() {
 		return nom;
